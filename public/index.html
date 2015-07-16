@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/jquery-ui.min.js"></script>
+    <script src="javascripts/angular.js"></script>
+    <script src="javascripts/ui-bootstrap-tpls.js"></script>
+    <script src="javascripts/angular-ui-router.js"></script>
+    <script src="javascripts/lodash.min.js"></script>
+    <script src="javascripts/angular-google-maps.js"></script>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/list.controller.js"></script>
+    <script src="app/controllers/map.controller.js"></script>
+  </head>
+  
+  <body ng-app="kontactApp">
+    <div ui-view="navbar">
+    </div>
+    
+    <div ui-view="content">
+    </div>
+  </body>
+</html>
