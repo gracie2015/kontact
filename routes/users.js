@@ -8,7 +8,12 @@ var users = [
     lastname: 'Sparrow',
     gender: 'M',
     cell: '1234567',
-    email: 'jack@gmail.com'
+    email: 'jack@gmail.com',
+    coords: {
+        latitude: 47.618819,
+        longitude: -122.168126
+      },
+      location: 'Bellevue'
   },
   {
     id: 1,
@@ -16,7 +21,12 @@ var users = [
     lastname: 'Omar',
     gender: 'M',
     cell: '2346543',
-    email: 'don@hotmail.com'
+    email: 'don@hotmail.com',
+    coords:{
+        latitude: 47.673406,
+        longitude: -122.119031
+      },
+      location: 'Redmond'
   },
   {
     id: 2,
@@ -24,7 +34,12 @@ var users = [
     lastname: 'Cooper',
     gender: 'F',
     cell: '0322244',
-    email: 'alice@live.com'
+    email: 'alice@live.com',
+    coords:{
+        latitude: 47.616042, 
+        longitude: -122.042813
+      },
+      location: 'Sammamish'
   },
   {
     id: 3,
@@ -32,7 +47,12 @@ var users = [
     lastname: 'Shawn',
     gender: 'F',
     cell: '0322244',
-    email: 'jerry@live.com'
+    email: 'jerry@live.com',
+    coords:{
+        latitude: 47.569770,  
+        longitude: -122.223569
+      },
+      location: 'Mercer Island'
   },
 ];
 

@@ -6,6 +6,8 @@ var addUserDlgController = kontactApp.controller('AddUserDlgCtrl', function($sco
   $scope.gender = '';
   $scope.cell = '';
   $scope.email = '';
+  $scope.location = '';
+  //$scope.coords = {0, 0};
   
   $scope.addUser = function() {
     $http.post('/users/', {
@@ -13,7 +15,10 @@ var addUserDlgController = kontactApp.controller('AddUserDlgCtrl', function($sco
       lastname: $scope.lastName,
       gender: $scope.gender,
       cell: $scope.cell,
-      email: $scope.email
+      email: $scope.email,
+      //coords: $scope.coords,
+      location: $scope.location
+      
     }).success(function(data) {
       $modalInstance.close();
     });
