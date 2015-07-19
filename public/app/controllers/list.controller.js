@@ -7,22 +7,34 @@ var addUserDlgController = kontactApp.controller('AddUserDlgCtrl', function($sco
   $scope.cell = '';
   $scope.email = '';
   $scope.location = '';
-  //$scope.coords = {0, 0};
   
   $scope.addUser = function() {
-    $http.post('/users/', {
-      firstname: $scope.firstName,
-      lastname: $scope.lastName,
-      gender: $scope.gender,
-      cell: $scope.cell,
-      email: $scope.email,
-      //coords: $scope.coords,
-      location: $scope.location
-      
-    }).success(function(data) {
-      $modalInstance.close();
+    
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': $scope.location }, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var coords = {
+          latitude: results[0].geometry.location.lat(),
+          longitude: results[0].geometry.location.lng()
+        };
+        
+        $http.post('/users/', {
+          firstname: $scope.firstName,
+          lastname: $scope.lastName,
+          gender: $scope.gender,
+          cell: $scope.cell,
+          email: $scope.email,
+          coords: coords,
+          location: $scope.location
+          
+        }).success(function(data) {
+          $modalInstance.close();
+        });
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
     });
-  }
+  };
   
 });
 

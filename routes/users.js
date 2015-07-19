@@ -102,7 +102,9 @@ router.post('/', function(req, res, next) {
     lastname: req.body.lastname,
     gender: req.body.gender,
     cell: req.body.cell,
-    email: req.body.email
+    email: req.body.email,
+    coords:req.body.coords,
+    location: req.body.location
   });
   currentId++;
   
