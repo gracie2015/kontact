@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var User = require('./data');
 
+var users = [];
+/*
 var users = [
   {
     id: 0,
@@ -55,6 +58,7 @@ var users = [
       location: 'Mercer Island'
   },
 ];
+*/
 
 var sort_users = function(users) {
   var i = 0;
@@ -90,12 +94,18 @@ var sort_users = function(users) {
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   //sort_users(users);
-  res.json(users);
+  //res.json(users);
+  User.find({}, function(err, users){
+    if(err) throw err;
+    
+    res.json(users);
+  });
 });
 
-var currentId = users.length;
-
+//var currentId = users.length;
+var currentId = 0;
 router.post('/', function(req, res, next) {
+  /*
   users.push({
     id: currentId,
     firstname: req.body.firstname,
@@ -107,7 +117,23 @@ router.post('/', function(req, res, next) {
     location: req.body.location
   });
   currentId++;
+  */
+  var newUser = new User({
+    id: currentId,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    gender: req.body.gender,
+    cell: req.body.cell,
+    email: req.body.email,
+    coords:req.body.coords,
+    location: req.body.location    
+  });
   
+  newUser.save(function(err) {
+    if (err) throw err;
+    console.log('User saved successfully!');
+  });
+  currentId++;
  // sort_users(users);
   res.json({ result: 'done' });
 });
