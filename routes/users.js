@@ -105,19 +105,7 @@ router.get('/', function(req, res, next) {
 //var currentId = users.length;
 var currentId = 0;
 router.post('/', function(req, res, next) {
-  /*
-  users.push({
-    id: currentId,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    gender: req.body.gender,
-    cell: req.body.cell,
-    email: req.body.email,
-    coords:req.body.coords,
-    location: req.body.location
-  });
-  currentId++;
-  */
+  
   var newUser = new User({
     id: currentId,
     firstname: req.body.firstname,
@@ -133,11 +121,24 @@ router.post('/', function(req, res, next) {
     if (err) throw err;
     console.log('User saved successfully!');
   });
+  
   currentId++;
+  
  // sort_users(users);
   res.json({ result: 'done' });
 });
 
+router.delete('/:id', function(req, res, next) {
+  console.log(req.params.id);
+  //console.log(req.params.firstname);
+  User.remove({id: req.params.id}, function(err,user){
+    if(err) throw err;
+    console.log('User : ' + user + ' Removed!');
+  });
+  res.json({ result: 'done' });
+});
+
+/*
 router.delete('/:id', function(req, res, next) {
   //console.log(req.params.id);
   var idx = -1;
@@ -151,5 +152,6 @@ router.delete('/:id', function(req, res, next) {
   users.splice(idx, 1);
   res.json({ result: 'done' });
 });
+*/
 
 module.exports = router;
