@@ -47,6 +47,55 @@
   </div>
 </script>
 
+<script type="text/ng-template" id="modifyUserDlg.html">
+  <div class="modal-header">
+    <h3 class="modal-title">Modify User</h3>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="lastName">
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <input type="text" class="form-control" id="gender" placeholder="Enter gender" ng-model="gender">
+    </div>
+    <div class="form-group">
+      <label for="cell">Cell Phone</label>
+      <input type="text" class="form-control" id="cell" placeholder="Enter Cell Phone Number" ng-model="cell">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter Email Address" ng-model="email">
+    </div>
+    
+    <!--
+    <div class="form-group">
+      <label for="latitude">Latitude</label>
+      <input type="text" class="form-control" id="latitude" placeholder="Enter Coords Latitude" ng-model="coords.latitude">
+    </div>
+    <div class="form-group">
+      <label for="longitude">Longitude</label>
+      <input type="text" class="form-control" id="longitude" placeholder="Enter Coords Longitude" ng-model="coords.longitude">
+    </div>
+    -->
+    
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" id="location" placeholder="Enter Location" ng-model="location">
+    </div>
+    
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="modifyUser()">OK</button>
+    <button class="btn btn-warning">Cancel</button>
+  </div>
+</script>
+
 <div class="container">
  
   <table class="table table-hover">
@@ -80,5 +129,6 @@
   </table>
   <button type="button" class="btn btn-primary" ng-click="openAddUserDlg()">Add User</button>
   <button type="button" class="btn btn-primary" ng-click="delUser()">Delete User</button>
+  <button type="button" class="btn btn-primary" ng-click="openModifyUserDlg()">Modify User</button>
   
 </div>
