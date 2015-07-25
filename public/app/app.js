@@ -7,11 +7,29 @@ var kontactApp = angular.module('kontactApp', [
 ]);
 
 kontactApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-  $urlRouterProvider.otherwise('/list');
+  $urlRouterProvider.otherwise('/login');
   $stateProvider
+    .state('login',{
+      url: '/login',
+      views: {
+        'content': {
+          templateUrl: 'app/views/login.html',
+          controller: 'loginCtrl'
+        }
+      }
+    })
+    .state('register',{
+      url: '/register',
+      views: {
+        'content':{
+          templateUrl: 'app/views/register.html',
+          controller: 'registerCtrl'
+        }
+      }
+    })
     .state('list', {
       url: '/list',
-      views:{
+      views: {
         'navbar': {
           templateUrl: 'app/views/navbar.html'
         },

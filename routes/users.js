@@ -4,38 +4,8 @@ var User = require('./data');
 
 var users = [];
 
-var sort_users = function(users) {
-  var i = 0;
-  var j = 1;
-  while(i < users.length - 1){
-    while(j < users.length) {
-      if (users[i].lastname <= users[j].lastname) {//according the first character only.
-        j++;
-      }
-      else{
-        var temp = users[i];
-        users[i] = users[j];
-        users[j] = temp;
-        j++;
-      }
-    };
-    i++;
-    j = i + 1;
-  };
-
-  console.log("i: " + i);
-  console.log("j: " + j);
-  console.log("users length: " + users.length)
-  for( t = 0; t < users.length; t++){
-    console.log(t + ": "+ users[t].lastname );
-  }
-  
-  return users;
-};
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  //sort_users(users);
   User.find({}, function(err, users){
     if(err) throw err;
     
@@ -43,6 +13,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/*GET Selected User Information : not working...
+
+router.get('/:id', function(req, res, next) {
+  //sort_users(users);
+  User.find({id : req.params.id}, function(err, users){
+    if(err) throw err;
+    console.log("User Info is : " + users.firstname);
+    res.json(users);
+  });
+});
+*/
 
 var currentId = 0;
 
@@ -66,11 +47,12 @@ router.post('/', function(req, res, next) {
   
   currentId++;
   
- // sort_users(users);
+ 
   res.json({ result: 'done' });
 });
 
 //Modify Selected User
+//worked.
 router.post('/:id', function(req, res, next) {
   console.log("Update User ID: " + req.params.id);
   console.log("req.body.location: "+ req.body.location);
@@ -91,7 +73,8 @@ router.post('/:id', function(req, res, next) {
     }
     
   );
-  /*
+  /* //not working, wiered results...
+  
    var UserInfo = new User({
     id: req.params.id,
     firstname: req.body.firstname,

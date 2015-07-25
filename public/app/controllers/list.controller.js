@@ -39,6 +39,7 @@ var addUserDlgController = kontactApp.controller('AddUserDlgCtrl', function($sco
 });
 
 var modifyUserDlgController = kontactApp.controller('ModifyUserDlgCtrl', function($scope, $http, $modalInstance, selectedId) {
+
   $scope.id = selectedId;
   $scope.firstName = '';
   $scope.lastName = '';
@@ -48,7 +49,7 @@ var modifyUserDlgController = kontactApp.controller('ModifyUserDlgCtrl', functio
   $scope.location = '';
   
   $scope.modifyUser = function() {
-    alert("inside modifyUser, id is  "+$scope.id);//undefined...seems parameter selectedId not passed.
+    alert("inside modifyUser, id is  "+$scope.id);
     
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode( { 'address': $scope.location }, function (results, status) {
