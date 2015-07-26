@@ -30,7 +30,7 @@
     
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="addUser()">Add</button>
+    <button class="btn btn-primary" name = "add" ng-click="addUser()">Add</button>
     <button class="btn btn-warning">Cancel</button>
   </div>
 </script>
@@ -117,8 +117,8 @@
     </tbody>
 
   </table>
-  <button type="button" class="btn btn-primary" ng-click="openAddUserDlg()">Add User</button>
-  <button type="button" class="btn btn-primary" ng-click="delUser()">Delete User</button>
-  <button type="button" class="btn btn-primary" ng-click="openModifyUserDlg()">Modify User</button>
+  <button type="button" class="btn btn-primary" name = "adduser" ng-click="openAddUserDlg()">Add User</button>
+  <button type="button" class="btn btn-primary" name = "deluser" ng-click="delUser()">Delete User</button>
+  <button type="button" class="btn btn-primary" name = "modifyuser" ng-click="openModifyUserDlg()">Modify User</button>
   
 </div>
