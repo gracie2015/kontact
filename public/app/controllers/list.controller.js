@@ -18,7 +18,7 @@ var addUserDlgController = kontactApp.controller('AddUserDlgCtrl', function($sco
           longitude: results[0].geometry.location.lng()
         };
         
-        $http.post('/users/', {
+        $http.post('/kontact/v1/contacts/', {
           firstname: $scope.firstName,
           lastname: $scope.lastName,
           gender: $scope.gender,
@@ -59,7 +59,7 @@ var modifyUserDlgController = kontactApp.controller('ModifyUserDlgCtrl', functio
           longitude: results[0].geometry.location.lng()
         };
        
-        $http.post(('/users/' + $scope.id), {
+        $http.post(('/kontact/v1/contacts/' + $scope.id), {
           firstname: $scope.firstName,
           lastname: $scope.lastName,
           gender: $scope.gender,
@@ -80,14 +80,14 @@ var modifyUserDlgController = kontactApp.controller('ModifyUserDlgCtrl', functio
 });
 
 var listController = kontactApp.controller('ListCtrl', function($scope, $http, $modal) {
-  $scope.getUsers = function() {
-    $http.get('/users/')
+  $scope.getContacts = function() {
+    $http.get('/kontact/v1/contacts/')
     .then(function(response) {
-      $scope.users = response.data;
+      $scope.contacts = response.data;
     });
   };
   
-  $scope.getUsers();
+  $scope.getContacts();
   
   $scope.genderText = function(gender) {
     if (gender === 'M') {
@@ -104,7 +104,7 @@ var listController = kontactApp.controller('ListCtrl', function($scope, $http, $
     });
     
     modalInstance.result.then(function() {
-      $scope.getUsers();
+      $scope.getContacts();
     }, function() {
     });
   };
@@ -129,16 +129,16 @@ var listController = kontactApp.controller('ListCtrl', function($scope, $http, $
     });
     
     modalInstance.result.then(function() {
-      $scope.getUsers();
+      $scope.getContacts();
     }, function() {
     });
   };
   
   $scope.delUser = function() {
     alert($scope.selectedId);
-    $http.delete('/users/' + $scope.selectedId)
+    $http.delete('/kontact/v1/contacts/' + $scope.selectedId)
       .success(function(data) {
-        $scope.getUsers();
+        $scope.getContacts();
       });
   }
 });

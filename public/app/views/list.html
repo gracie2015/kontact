@@ -103,16 +103,16 @@
       </tr> 
     </thead>
     <tbody>
-      <tr ng-repeat="user in users | orderBy: '+lastname'">
-        <td><input type="checkbox" class="btn-primary" ng-change="onChange(user.id)" ng-model="val"></checkbox>
-        <td>{{user.id}}</td>
-        <td>{{user.firstname}}</td>
-        <td>{{user.lastname}}</td>
-        <td>{{genderText(user.gender)}}</td>
-        <td>{{user.cell}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.location}}</td>
-        <td>{{user.coords}}</td>
+      <tr ng-repeat="contact in contacts | orderBy: '+lastname'">
+        <td><input type="checkbox" class="btn-primary" ng-change="onChange(contact.id)" ng-model="val"></checkbox>
+        <td>{{contact.id}}</td>
+        <td>{{contact.firstname}}</td>
+        <td>{{contact.lastname}}</td>
+        <td>{{genderText(contact.gender)}}</td>
+        <td>{{contact.cell}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.location}}</td>
+        <td>{{contact.coords}}</td>
       </tr>
     </tbody>
 
