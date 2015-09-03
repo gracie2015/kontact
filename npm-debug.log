@@ -1,7 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@2.11.2
-3 info using node@v0.12.6
+3 info using node@v0.12.5
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info prestart kontact@0.0.0
 6 info start kontact@0.0.0
@@ -16,10 +16,10 @@
 9 verbose stack     at maybeClose (child_process.js:1015:16)
 9 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
 10 verbose pkgid kontact@0.0.0
-11 verbose cwd /Users/nathan/Workspace/kontact
-12 error Darwin 14.3.0
+11 verbose cwd /Users/nathan/Workspace/Kontact
+12 error Darwin 14.5.0
 13 error argv "node" "/usr/local/bin/npm" "start"
-14 error node v0.12.6
+14 error node v0.12.5
 15 error npm  v2.11.2
 16 error code ELIFECYCLE
 17 error kontact@0.0.0 start: `node ./bin/www`
