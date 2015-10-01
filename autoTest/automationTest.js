@@ -1,7 +1,7 @@
-'user strict'
+'use strict'
 
-var webdriver = require('selenium-webdriver');
-var browser = new webdriver.Builder().usingServer().withCapabilities({'browserName': 'firefox'}).build();
+var webdriver = require('/Users/nathan/Workspace/Selenium/node_modules/selenium-webdriver');
+var browser = new webdriver.Builder().usingServer().withCapabilities({'browserName': 'safari'}).build();
 
 function waitSeconds(){
   
