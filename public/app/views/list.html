@@ -1,6 +1,6 @@
 <script type="text/ng-template" id="addUserDlg.html">
   <div class="modal-header">
-    <h3 class="modal-title">Add User</h3>
+    <h3 class="modal-title">Add Contact</h3>
   </div>
   <div class="modal-body">
     <div class="form-group">
@@ -99,7 +99,7 @@
         <th>Cell</th>
         <th>Email</th>
         <th>Location</th>
-        <th>Coords</th>
+        <!--<th>Coords</th>-->
       </tr> 
     </thead>
     <tbody>
@@ -112,13 +112,13 @@
         <td>{{contact.cell}}</td>
         <td>{{contact.email}}</td>
         <td>{{contact.location}}</td>
-        <td>{{contact.coords}}</td>
+        <!--<td>{{contact.coords}}</td>-->
       </tr>
     </tbody>
 
   </table>
-  <button type="button" class="btn btn-primary" name = "adduser" ng-click="openAddUserDlg()">Add User</button>
-  <button type="button" class="btn btn-primary" name = "deluser" ng-click="delUser()">Delete User</button>
-  <button type="button" class="btn btn-primary" name = "modifyuser" ng-click="openModifyUserDlg()">Modify User</button>
+  <button type="button" class="btn btn-primary" name = "adduser" ng-click="openAddUserDlg()">Add Contact</button>
+  <button type="button" class="btn btn-primary" name = "deluser" ng-click="delUser()">Delete Contact</button>
+  <button type="button" class="btn btn-primary" name = "modifyuser" ng-click="openModifyUserDlg()">Modify Contact</button>
   
 </div>
