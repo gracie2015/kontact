@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var Contact = require('./contactData');
+var validateUser = require('../middlewares/validateRequest');
 
 var contacts = [];
 
 /* GET contacts listing. */
 router.get('/', function(req, res, next) {
-  Contact.find({}, function(err, contacts){
+  Contact.find({username:req.headers['x-key']}, function(err, contacts){
     if(err) throw err;
     
     res.json(contacts);
@@ -20,6 +21,7 @@ var currentId = 0;
 router.post('/', function(req, res, next) {
   
   var newContact = new Contact({
+    username:req.headers['x-key'],
     id: currentId,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -33,6 +35,7 @@ router.post('/', function(req, res, next) {
   newContact.save(function(err) {
     if (err) throw err;
     console.log('contact saved successfully!');
+    console.log('username_x-key: ' + req.headers['x-key']);
   });
   
   currentId++;
@@ -48,6 +51,7 @@ router.post('/:id', function(req, res, next) {
   console.log("req.body.location: "+ req.body.location);
   Contact.update({id: req.params.id},
     {$set:{
+      username:req.headers['x-key'],
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     gender: req.body.gender,

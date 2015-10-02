@@ -4,6 +4,7 @@ var conn1 = mongoose.createConnection('mongodb://localhost:27017/test');
 
 
 var Contact = conn1.model('Contact', new mongoose.Schema({
+  username:String,
   id: Number,
   firstname: String,
   lastname: String,
